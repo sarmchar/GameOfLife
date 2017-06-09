@@ -51,10 +51,12 @@ function Life(container, width=12, height=12) {
         var cells = table.getElementsByTagName('td');
     for (var i = 0; i < cells.length; i++){
       if (present.get(document.getElementById(cells[i].id).coord) === 1){
+        cells[i].classList.remove('dead');
         cells[i].classList.add('alive');
       }
       else {
         cells[i].classList.remove('alive');
+        cells[i].classList.add('dead');
       }
     }
   }
