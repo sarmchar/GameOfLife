@@ -10,6 +10,8 @@ if (mainElement) {
   .addEventListener('click', game.random);
   document.getElementById('clear_btn')
   .addEventListener('click', game.clear);
+    document.getElementById('preset_btn')
+  .addEventListener('click', game.presetGlider);
 
 }
 
@@ -96,5 +98,15 @@ function Life(container, width=12, height=12) {
     paint();
   }
 
-  return {play, step, stop, togglePlaying, random, clear};
+  function presetGlider() {
+    function gliders(isAlive, numLivingNeighbor, i) {
+      var arr = [1,  10, 14, 21, 24, 25, 26, 33, 34, 35, 108, 109, 110, 117, 118, 119, 122, 129, 133, 142];
+      if (arr.includes(i)) return true;
+      return false;
+    }
+    [present, future] = tick(present, future, gliders);
+    paint();
+  }
+
+  return {play, step, stop, togglePlaying, random, clear, presetGlider};
 }

@@ -22,9 +22,7 @@ Board.prototype.livingNeighbors = function([row, col]) {
   for (var i = row - 1; i < row + 2; i++){
     for (var j = col - 1; j < col + 2; j++){
       if (i >= 0 && j >= 0 && i < this.height && j < this.width){
-        if (this.get([i, j])){
-          count++;
-        }
+        count += this.get([i, j]);
       }
     }
   }
@@ -49,7 +47,7 @@ function conway(isAlive, numLivingNeighbors) {
 function tick(present, future, rules = conway) {
   for (var i = 0; i < present.cells.length; i++){
     var [row, col] = [Math.floor(i / present.width), i % present.width];
-    if (rules(present.get([row, col]), present.livingNeighbors([row, col]))){
+    if (rules(present.get([row, col]), present.livingNeighbors([row, col]), i)){
       future.set([row, col], 1);
     }
     else {

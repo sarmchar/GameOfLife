@@ -13,8 +13,8 @@ h1, h2 {
 
 .board td{
   border: 1px solid #ddd;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
 }
 
 td.alive {
@@ -23,6 +23,11 @@ td.alive {
 
 td.dead {
   background-color: #B487EB;
+}
+
+#preset_btn{
+    background-color:#6728B2 ;
+    color: white;
 }
 
 #control_panel {
